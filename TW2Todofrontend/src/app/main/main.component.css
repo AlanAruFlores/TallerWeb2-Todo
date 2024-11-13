@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.main{
+    padding: 45px 60px;
+    font-family: Montserrat;
+}
+.main_titulo{
+    color: #272727;
+    font-size: 35px;
+    font-weight: 300;
+    text-align: center;
+}
+.main_barra{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.main_barra .barra{
+    color: #272727;
+    margin-top: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.main_barra p{
+    height:20px;
+    line-height:10px;
+}
+
+.progress{
+    border-radius: 10px;
+    width: 200px;
+    background-color: #e0e0e0;
+
+}
+.progress-bar{
+    background-color: #7A1CAC;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.main_tareas{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media(min-width:750px)
+{
+    .main{
+        padding: 40px 110px;
+    }
+    .main_titulo{
+        text-align: start;
+    }
+
+}
