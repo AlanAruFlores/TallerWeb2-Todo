@@ -9,14 +9,9 @@ import { Tarea } from 'src/app/models/tarea';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  httpClient : HttpClient;
   tareas : Tarea[];
-
-
-  constructor(httpClient:HttpClient) {
-    this.httpClient = httpClient;
-   }
+  constructor(private httpClient:HttpClient) {
+  }
 
   ngOnInit(): void {
     let tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>("http://localhost:3000/api/tarea");

@@ -8,7 +8,7 @@
             </div>    
         </div>
 
-        <a href="#" class="d-block">
+        <a href="#" class="d-block" id="botonAgregar">
             <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="#7A1CAC" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
             </svg>
@@ -19,3 +19,22 @@
         <app-item *ngFor="let t of tareas" [titulo]="t.titulo" [recordatorio]="t.recordatorio" [activa]="t.activa"></app-item>
     </div>
 </main>
+
+<div class="formulario" id="formulario">
+    <form class="formularioTareaNueva">
+        <h2>Agregar nueva Tarea</h2>
+        <button class="botonCerrar" id="botonCerrar">X</button>
+        <div>
+            <label>Titulo de la tarea</label>
+            <input type="text" placeholder="Titulo">    
+        </div>
+        
+        <div>
+            <label>Recordatorio</label>
+            <input type="date" placeholder="Fecha">    
+        </div>
+    
+        <button class="botonCrear">Crear</button>
+    
+    </form>
+</div>
