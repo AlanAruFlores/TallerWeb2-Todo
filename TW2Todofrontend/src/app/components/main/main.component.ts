@@ -11,6 +11,8 @@ import { Tarea } from 'src/app/models/tarea';
 export class MainComponent implements OnInit {
 
   httpClient : HttpClient;
+  tareas : Tarea[];
+
 
   constructor(httpClient:HttpClient) {
     this.httpClient = httpClient;
@@ -20,7 +22,12 @@ export class MainComponent implements OnInit {
     let tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>("http://localhost:3000/api/tarea");
     tareasObservable.subscribe(valor =>{
       console.log(valor);
-    })
+      this.tareas = valor;
+    });
   }
+
+
+
+
 
 }

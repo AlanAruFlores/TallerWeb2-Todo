@@ -16,10 +16,6 @@
     </div>
 
     <div class="main_tareas">
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-        <app-item></app-item>
-
+        <app-item *ngFor="let t of tareas" [titulo]="t.titulo" [recordatorio]="t.recordatorio" [activa]="t.activa"></app-item>
     </div>
 </main>
