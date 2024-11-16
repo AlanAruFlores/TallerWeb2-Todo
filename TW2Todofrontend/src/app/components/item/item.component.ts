@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { TareaService } from 'src/app/services/tarea.service';
 
 
@@ -17,7 +18,7 @@ export class ItemComponent implements OnInit {
   @Output() productoEliminado = new EventEmitter<void>();  // Este es el evento que se emitirá al padre
 
 
-  constructor(private tareaService:TareaService) { }
+  constructor(private tareaService:TareaService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +26,7 @@ export class ItemComponent implements OnInit {
   eliminarProducto(id:number){
     this.tareaService.deleteTarea(id).subscribe(data=>{
       this.productoEliminado.emit();
+      this.toastService.info("Tarea eliminada exitosamente","Tarea Eliminada");
     });
   }
 
