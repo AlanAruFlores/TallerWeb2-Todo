@@ -102,6 +102,8 @@
     margin: 10px 5px;
     color: white;
     border: none;
+    text-decoration: none;
+    text-align: center;
 }
 
 .formularioTareaNueva .botonCrear{

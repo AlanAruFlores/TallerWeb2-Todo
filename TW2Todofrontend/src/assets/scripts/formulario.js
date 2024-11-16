@@ -1,29 +1,31 @@
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", (e)=>{
 
     document.getElementById("botonAgregar").addEventListener("click", ()=>{
-        let formulario = document.getElementById("formulario");
-        formulario.style.visibility="visible";
-        formulario.style.opacity="1";
-        
-        console.log("abrir boton");
+        abrirFormulario();
     })
 
     document.getElementById("botonCerrar").addEventListener("click",()=>{
-        let formulario = document.getElementById("formulario");
-        formulario.style.visibility="hidden";
-        formulario.style.opacity="0";
-        
-        console.log("cerrar boton");
+        cerrarFormulario();
     });
 
     document.getElementById("botonCrear").addEventListener("click", ()=>{
-        console.log("qwdqwdqw")
+       cerrarFormulario();
+    });
+
+    
+    
+
+    function cerrarFormulario(){
         let formulario = document.getElementById("formulario");
         formulario.style.visibility="hidden";
-        formulario.style.opacity="0";
-        
-        console.log("cerrar boton");
+        formulario.style.opacity="0";        
+        //console.log("cerrar formulario");
+    }
 
-    });
-    
+    function abrirFormulario(){
+        let formulario = document.getElementById("formulario");
+        formulario.style.visibility="visible";
+        formulario.style.opacity="1";   
+   //     console.log("abrir boton");
+    }
 });
