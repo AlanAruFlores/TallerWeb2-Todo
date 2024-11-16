@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   constructor(private httpClient:HttpClient,private fb:FormBuilder, private tareaService:TareaService) {
     this.form = this.fb.group({
       titulo:["",Validators.required],
-      recordatorio:["",Validators.required]
+      descripcion:["",Validators.required]
     });
   }
 
@@ -36,8 +36,8 @@ export class MainComponent implements OnInit {
   crearTarea(): void{
     const tareaNueva : Tarea = {
       titulo:this.form.value.titulo,
-      recordatorio: this.form.value.recordatorio,
-      activa: true,
+      descripcion: this.form.value.descripcion,
+      activa: false,
     };
 
     this.tareaService.saveTarea(tareaNueva).subscribe(data=>{

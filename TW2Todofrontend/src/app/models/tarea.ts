@@ -1,6 +1,6 @@
 export class Tarea{
     id?:number;
     titulo?:string;
-    recordatorio?:string
+    descripcion?:string
     activa?:boolean;
 }

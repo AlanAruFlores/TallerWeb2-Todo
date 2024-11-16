@@ -39,10 +39,10 @@
         </div>
         
         <div>
-            <label>Recordatorio</label>
-            <input type="date" placeholder="Fecha" formControlName="recordatorio">    
-            <span class="text-danger" *ngIf="form.get('recordatorio')?.hasError('required')">
-                El campo recordatorio es <strong>requerido</strong>
+            <label>Descripcion</label>
+            <textarea class="form-control" rows="3" formControlName="descripcion"></textarea>
+            <span class="text-danger" *ngIf="form.get('descripcion')?.hasError('required')">
+                El campo descripcion es <strong>requerido</strong>
             </span>  
         </div>
     
