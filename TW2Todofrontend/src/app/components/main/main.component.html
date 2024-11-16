@@ -16,7 +16,12 @@
     </div>
 
     <div class="main_tareas">
-        <app-item *ngFor="let t of tareas" [titulo]="t.titulo" [recordatorio]="t.recordatorio" [activa]="t.activa"></app-item>
+        <app-item *ngFor="let t of tareas" 
+        [titulo]="t.titulo" 
+        [recordatorio]="t.recordatorio" 
+        [activa]="t.activa" 
+        [id]="t.id"
+        (productoEliminado)="traerTareas()"></app-item>
     </div>
 </main>
 
@@ -27,15 +32,21 @@
         <a class="botonCerrar" id="botonCerrar">X</a>
         <div>
             <label>Titulo de la tarea</label>
-            <input type="text" placeholder="Titulo" formControlName="titulo">    
+            <input type="text" placeholder="Titulo" formControlName="titulo"> 
+            <span class="text-danger" *ngIf="form.get('titulo')?.hasError('required')">
+                El campo titulo es <strong>requerido</strong>
+            </span>   
         </div>
         
         <div>
             <label>Recordatorio</label>
             <input type="date" placeholder="Fecha" formControlName="recordatorio">    
+            <span class="text-danger" *ngIf="form.get('recordatorio')?.hasError('required')">
+                El campo recordatorio es <strong>requerido</strong>
+            </span>  
         </div>
     
-        <button class="botonCrear" id="botonCrear">Crear</button>
+        <button [disabled]="form.invalid" class="botonCrear" id="botonCrear">Crear</button>
     
     </form>
 </div>

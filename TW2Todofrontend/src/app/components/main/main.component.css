@@ -121,6 +121,10 @@
     font-weight: 500;
 }
 
+.formularioTareaNueva .botonCrear:disabled{
+    background-color: #7a1cac7a;
+    color: white;
+}
 
 @media(min-width:750px)
 {

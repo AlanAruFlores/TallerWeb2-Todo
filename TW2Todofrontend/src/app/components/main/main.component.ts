@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Tarea } from 'src/app/models/tarea';
+import { TareaService } from 'src/app/services/tarea.service';
 
 @Component({
   selector: 'app-main',
@@ -13,7 +14,7 @@ export class MainComponent implements OnInit {
   tareas : Tarea[];
   form : FormGroup;
 
-  constructor(private httpClient:HttpClient,private fb:FormBuilder) {
+  constructor(private httpClient:HttpClient,private fb:FormBuilder, private tareaService:TareaService) {
     this.form = this.fb.group({
       titulo:["",Validators.required],
       recordatorio:["",Validators.required]
@@ -25,8 +26,7 @@ export class MainComponent implements OnInit {
   }
 
   traerTareas():void{
-    let tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>("http://localhost:3000/api/tarea");
-    tareasObservable.subscribe(valor =>{
+    this.tareaService.getTareas().subscribe(valor =>{
       console.log(valor);
       this.tareas = valor;
     });
@@ -40,8 +40,7 @@ export class MainComponent implements OnInit {
       activa: true,
     };
 
-
-    this.httpClient.post("http://localhost:3000/api/tarea", tareaNueva).subscribe(data => {
+    this.tareaService.saveTarea(tareaNueva).subscribe(data=>{
       console.log(data);
       this.traerTareas();
     });
@@ -49,7 +48,9 @@ export class MainComponent implements OnInit {
   }
 
 
-
+  eliminarTarea():void{
+    
+  }
 
 
 }
