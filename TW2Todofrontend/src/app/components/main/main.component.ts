@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Tarea } from 'src/app/models/tarea';
 
@@ -10,7 +11,13 @@ import { Tarea } from 'src/app/models/tarea';
 })
 export class MainComponent implements OnInit {
   tareas : Tarea[];
-  constructor(private httpClient:HttpClient) {
+  form : FormGroup;
+
+  constructor(private httpClient:HttpClient,private fb:FormBuilder) {
+    this.form = this.fb.group({
+      titulo:["",Validators.required],
+      recordatorio:["",Validators.required]
+    });
   }
 
   ngOnInit(): void {
@@ -19,6 +26,21 @@ export class MainComponent implements OnInit {
       console.log(valor);
       this.tareas = valor;
     });
+  }
+
+
+  crearTarea(): void{
+    const tareaNueva : Tarea = {
+      titulo:this.form.value.titulo,
+      recordatorio: this.form.value.recordatorio,
+      activa: true,
+    };
+
+
+    this.httpClient.post("http://localhost:3000/api/tarea", tareaNueva).subscribe(data => {
+      console.log(data);
+    });
+    console.log(tareaNueva);
   }
 
 

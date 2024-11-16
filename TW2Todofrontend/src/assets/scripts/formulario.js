@@ -15,4 +15,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
         console.log("cerrar boton");
     });
+
+    document.getElementById("botonCrear").addEventListener("click", ()=>{
+        console.log("qwdqwdqw")
+        let formulario = document.getElementById("formulario");
+        formulario.style.visibility="hidden";
+        formulario.style.opacity="0";
+        
+        console.log("cerrar boton");
+
+    });
+    
 });

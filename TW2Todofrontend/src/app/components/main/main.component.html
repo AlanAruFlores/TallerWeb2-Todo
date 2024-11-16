@@ -21,20 +21,21 @@
 </main>
 
 <div class="formulario" id="formulario">
-    <form class="formularioTareaNueva">
+    
+   <form class="formularioTareaNueva" (ngSubmit)="crearTarea()" [formGroup] = "form">
         <h2>Agregar nueva Tarea</h2>
         <button class="botonCerrar" id="botonCerrar">X</button>
         <div>
             <label>Titulo de la tarea</label>
-            <input type="text" placeholder="Titulo">    
+            <input type="text" placeholder="Titulo" formControlName="titulo">    
         </div>
         
         <div>
             <label>Recordatorio</label>
-            <input type="date" placeholder="Fecha">    
+            <input type="date" placeholder="Fecha" formControlName="recordatorio">    
         </div>
     
-        <button class="botonCrear">Crear</button>
+        <button class="botonCrear" id="botonCrear">Crear</button>
     
     </form>
 </div>
