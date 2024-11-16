@@ -21,6 +21,10 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.traerTareas();
+  }
+
+  traerTareas():void{
     let tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>("http://localhost:3000/api/tarea");
     tareasObservable.subscribe(valor =>{
       console.log(valor);
@@ -39,6 +43,7 @@ export class MainComponent implements OnInit {
 
     this.httpClient.post("http://localhost:3000/api/tarea", tareaNueva).subscribe(data => {
       console.log(data);
+      this.traerTareas();
     });
     console.log(tareaNueva);
   }

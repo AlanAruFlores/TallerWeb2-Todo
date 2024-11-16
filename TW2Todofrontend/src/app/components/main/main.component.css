@@ -3,6 +3,7 @@
 .main{
     padding: 45px 60px;
     font-family: Montserrat;
+    min-height: 500px;
 }
 .main_titulo{
     color: #272727;
@@ -45,6 +46,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: auto;
 }
 
 /*formularioTareaNueva*/
@@ -75,6 +77,8 @@
     position: relative;
     padding:15px 30px;
     max-width: 515px;
+    border-radius: 10px;
+
 }
 
 .formularioTareaNueva h2{
@@ -104,6 +108,7 @@
     border: none;
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
 }
 
 .formularioTareaNueva .botonCrear{
