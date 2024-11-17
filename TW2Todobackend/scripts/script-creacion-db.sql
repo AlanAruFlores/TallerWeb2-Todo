@@ -8,6 +8,6 @@ USE db_tareas;
 CREATE TABLE tarea (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
-    recordatorio TEXT,
+    descripcion TEXT,
     activa BOOLEAN DEFAULT TRUE
 );

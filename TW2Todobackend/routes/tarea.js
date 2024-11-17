@@ -9,24 +9,33 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+  connection.query('SELECT * FROM tarea WHERE id = ?',[id], (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.json(results);
+  });
+});
+
+
 router.post('/', (req, res) => {
-  const { titulo, recordatorio, activa } = req.body;
+  const { titulo, descripcion, activa } = req.body;
   connection.query(
-    'INSERT INTO tarea (titulo, recordatorio, activa) VALUES (?, ?, ?)',
-    [titulo, recordatorio, activa],
+    'INSERT INTO tarea (titulo, descripcion, activa) VALUES (?, ?, ?)',
+    [titulo, descripcion, activa],
     (err, results) => {
       if (err) return res.status(500).send(err);
-      res.json({ id: results.insertId, titulo, recordatorio, activa });
+      res.json({ id: results.insertId, titulo, descripcion, activa });
     }
   );
 });
 
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  const { titulo, recordatorio, activa } = req.body;
+  const { titulo, descripcion, activa } = req.body;
   connection.query(
-    'UPDATE tarea SET titulo = ?, recordatorio = ?, activa = ? WHERE id = ?',
-    [titulo, recordatorio, activa, id],
+    'UPDATE tarea SET titulo = ?, descripcion = ?, activa = ? WHERE id = ?',
+    [titulo, descripcion, activa, id],
     (err) => {
       if (err) return res.status(500).send(err);
       res.json({ mensaje: 'Tarea actualizada' });
