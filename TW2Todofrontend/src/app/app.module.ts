@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { VerInformacionComponent } from './components/ver-informacion/ver-informacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { ToastrModule } from 'ngx-toastr';
     MainComponent,
     ItemComponent,
     FooterComponent,
+    VerInformacionComponent,
 
   ],
   imports: [

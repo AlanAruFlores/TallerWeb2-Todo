@@ -21,7 +21,8 @@
         [activa]="t.activa" 
         [id]="t.id"
         (productoEliminado)="traerTareas()"
-        (cambioEstadoTarea)="traerTareas()"></app-item>
+        (cambioEstadoTarea)="traerTareas()"
+        (mostrarInformacionTarea)="verInformacionDeLaTarea($event)"></app-item>
     </div>
 </main>
 
@@ -50,3 +51,6 @@
     
     </form>
 </div>
+
+
+<router-outlet></router-outlet>

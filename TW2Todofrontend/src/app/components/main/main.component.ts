@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Tarea } from 'src/app/models/tarea';
 import { TareaService } from 'src/app/services/tarea.service';
 
@@ -15,7 +16,9 @@ export class MainComponent implements OnInit {
   verTareasPendientes:boolean;
   titulo: string;
 
-  constructor(private httpClient:HttpClient,private fb:FormBuilder, private tareaService:TareaService) {
+  tareaInformacion : Tarea;
+
+  constructor(private router:Router,private fb:FormBuilder, private tareaService:TareaService) {
     
     this.form = this.fb.group({
       titulo:["",Validators.required],
@@ -65,10 +68,14 @@ export class MainComponent implements OnInit {
     console.log(tareaNueva);
   }
 
-
-  eliminarTarea():void{
-    
+  verInformacionDeLaTarea(id:number){
+    this.tareaService.getTareaById(id).subscribe(data=>{
+      this.tareaInformacion = data[0];
+      console.log(this.tareaInformacion);
+      this.router.navigate(["/verInformacionView"],{
+        state: {tareaInformacion: this.tareaInformacion}
+      });
+    });
   }
-
 
 }

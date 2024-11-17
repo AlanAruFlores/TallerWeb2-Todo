@@ -18,6 +18,10 @@ export class TareaService {
     const tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>(this.apiUrl);
     return tareasObservable;
   }
+  
+  getTareaById(id:number):Observable<Tarea>{
+    return this.httpClient.get<Tarea>(`${this.apiUrl}/${id}`); 
+  }
 
   saveTarea(tarea:Tarea):Observable<Tarea>{
     return this.httpClient.post(this.apiUrl, tarea)

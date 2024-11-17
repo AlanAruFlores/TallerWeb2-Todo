@@ -18,13 +18,19 @@ export class ItemComponent implements OnInit {
 
   @Output() productoEliminado = new EventEmitter<void>();  // Este es el evento que se emitirá al padre
   @Output() cambioEstadoTarea = new EventEmitter<void>();
+  @Output() mostrarInformacionTarea = new EventEmitter<number>();
 
   constructor(private tareaService:TareaService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  eliminarProducto(id:number){
+
+  mostrarTarea(){
+    this.mostrarInformacionTarea.emit(this.id);
+  }
+
+  eliminarTarea(id:number){
     this.tareaService.deleteTarea(id).subscribe(data=>{
       this.productoEliminado.emit();
       this.toastService.warning("Tarea eliminada exitosamente","Tarea Eliminada");

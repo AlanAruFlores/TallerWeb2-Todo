@@ -1,0 +1,57 @@
+.informacion{
+    transition: .5s all;
+    visibility: visible;
+    opacity: 1;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    background-color: #2727275e;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.informacionTarea{
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    gap: 10px;
+    position: relative;
+    padding:15px 30px;
+    max-width: 515px;
+    border-radius: 10px;
+    height: 400px;
+}
+
+
+.informacionTarea h2{
+    color: #272727;
+    font-size: 35px;
+    font-weight: 400;   
+}
+.informacionTarea .botonCerrar{
+    background-color: #ed3837;
+    width: 25px;
+    border-radius: 50%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 5px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.div_section{
+    margin-top: 10px;
+}
+.div_section h3{
+    font-weight: 500;
+    font-size: 25px;
+}
