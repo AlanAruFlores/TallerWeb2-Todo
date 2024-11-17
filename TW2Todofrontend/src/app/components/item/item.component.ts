@@ -16,9 +16,12 @@ export class ItemComponent implements OnInit {
   @Input() descripcion: string;
   @Input() activa : boolean;
 
+
+  //Eventos a emitir al padre
   @Output() productoEliminado = new EventEmitter<void>();  // Este es el evento que se emitirá al padre
   @Output() cambioEstadoTarea = new EventEmitter<void>();
   @Output() mostrarInformacionTarea = new EventEmitter<number>();
+  @Output() editarTareaInformacion = new EventEmitter<number>();
 
   constructor(private tareaService:TareaService, private toastService: ToastrService) { }
 
@@ -49,5 +52,9 @@ export class ItemComponent implements OnInit {
       this.cambioEstadoTarea.emit();
       this.toastService.info("Estado de la tarea actualizada exitosamente","Tarea Actualizada");  
     })
+  }
+
+  editarTarea(){
+    this.editarTareaInformacion.emit(this.id);
   }
 }

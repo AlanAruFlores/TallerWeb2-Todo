@@ -22,7 +22,8 @@
         [id]="t.id"
         (productoEliminado)="traerTareas()"
         (cambioEstadoTarea)="traerTareas()"
-        (mostrarInformacionTarea)="verInformacionDeLaTarea($event)"></app-item>
+        (mostrarInformacionTarea)="verInformacionDeLaTarea($event)"
+        (editarTareaInformacion)="editarInformacionDeLaTarea($event)"></app-item>
     </div>
 </main>
 
@@ -53,4 +54,9 @@
 </div>
 
 
-<router-outlet></router-outlet>
+<app-editar-tarea *ngIf="abrirEdicionTarea" [tareaEditar]="tareaEditar" 
+(tareaEditadaExitosamente)="actualizarTarea()"
+(cerrarEdicionDeTarea)="cerrarEdicionTarea()">
+</app-editar-tarea>
+
+<router-outlet (tareaEditadaExitosamente)="traerTareas()"></router-outlet>

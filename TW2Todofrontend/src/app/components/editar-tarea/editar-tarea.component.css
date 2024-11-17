@@ -1,0 +1,73 @@
+.edicion{
+    visibility: visible;
+    opacity: 1;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+    background-color: #2727275e;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formularioEditar{
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    gap: 10px;
+    position: relative;
+    padding:15px 30px;
+    max-width: 515px;
+    border-radius: 10px;
+
+}
+
+.formularioEditar h2{
+    color: #272727;
+    font-size: 35px;
+    font-weight: 400;   
+}
+
+.formularioEditar label{
+    display: block;
+}
+.formularioEditar input{
+    width: 100%;
+    border: none;
+    margin-top: 10px;
+}
+
+.formularioEditar .botonCerrar{
+    background-color: #ed3837;
+    width: 25px;
+    border-radius: 50%;
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 5px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.formularioEditar .botonEditar{
+    margin-top: 10px;
+    border: none;
+    background-color: #7A1CAC;
+    color: white;
+    border-radius: 10px;
+    padding: 3px 0px;
+    font-weight: 500;
+}
+
+.formularioEditar .botonEditar:disabled{
+    background-color: #7a1cac7a;
+    color: white;
+}
+

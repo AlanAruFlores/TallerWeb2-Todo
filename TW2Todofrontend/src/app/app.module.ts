@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { VerInformacionComponent } from './components/ver-informacion/ver-informacion.component';
+import { EditarTareaComponent } from './components/editar-tarea/editar-tarea.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { VerInformacionComponent } from './components/ver-informacion/ver-inform
     ItemComponent,
     FooterComponent,
     VerInformacionComponent,
+    EditarTareaComponent,
 
   ],
   imports: [

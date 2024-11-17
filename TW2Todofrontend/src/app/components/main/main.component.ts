@@ -18,6 +18,10 @@ export class MainComponent implements OnInit {
   titulo: string;
 
   tareaInformacion : Tarea;
+  tareaEditar:Tarea;
+
+  abrirEdicionTarea:boolean;
+  abrirInformacionTarea:boolean;
 
   constructor(private router:Router,private fb:FormBuilder, private tareaService:TareaService, private toastService:ToastrService ) {
     
@@ -25,6 +29,9 @@ export class MainComponent implements OnInit {
       titulo:["",Validators.required],
       descripcion:["",Validators.required]
     });
+
+    this.abrirEdicionTarea = false;
+    this.abrirInformacionTarea = false;
   }
 
   ngOnInit(): void {
@@ -80,4 +87,26 @@ export class MainComponent implements OnInit {
     });
   }
 
+
+  editarInformacionDeLaTarea(id:number){
+    this.tareaService.getTareaById(id).subscribe(data=>{
+      this.tareaEditar = data[0]
+      
+      /*this.router.navigate(["/editarTareaView"],{
+        state:{tareaEditar:this.tareaEditar}
+      });*/
+
+      this.abrirEdicionTarea = true;
+      console.log(this.abrirEdicionTarea);
+    })
+  }
+
+  
+  cerrarEdicionTarea(){
+    this.abrirEdicionTarea = false;
+  }
+  actualizarTarea(){
+    this.abrirEdicionTarea = false;
+    this.traerTareas();
+  }
 }

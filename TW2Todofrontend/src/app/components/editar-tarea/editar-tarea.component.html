@@ -1,0 +1,24 @@
+<div class="edicion">
+    <form class="formularioEditar" (ngSubmit)="editarTareaInformacion()" [formGroup]="form">
+        <h2>Editar tarea</h2>
+        <a class="botonCerrar" (click)="cerrarEdicionVentana()">X</a>
+        <div>
+            <label>Titulo de la tarea</label>
+            <input type="text" placeholder="Titulo" formControlName="titulo"> 
+            <span class="text-danger" *ngIf="form.get('titulo')?.hasError('required')">
+                El campo titulo es <strong>requerido</strong>
+            </span>   
+        </div>
+        
+        <div>
+            <label>Descripcion</label>
+            <textarea class="form-control" rows="3" formControlName="descripcion"></textarea>
+            <span class="text-danger" *ngIf="form.get('descripcion')?.hasError('required')">
+                El campo descripcion es <strong>requerido</strong>
+            </span>  
+        </div>
+    
+        <button [disabled]="form.invalid" class="botonEditar">Editar</button>
+    
+    </form>
+</div>
