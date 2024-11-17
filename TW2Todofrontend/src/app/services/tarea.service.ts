@@ -26,4 +26,8 @@ export class TareaService {
   deleteTarea(id:number):Observable<Tarea>{
     return this.httpClient.delete(`${this.apiUrl}/${id}`);
   }
+
+  updateTarea(id:number, tarea:Tarea):Observable<Tarea>{
+    return this.httpClient.put(`${this.apiUrl}/${id}`,tarea);
+  }
 }

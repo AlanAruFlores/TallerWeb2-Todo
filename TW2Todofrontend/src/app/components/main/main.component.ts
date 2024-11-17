@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { Tarea } from 'src/app/models/tarea';
 import { TareaService } from 'src/app/services/tarea.service';
 
@@ -13,8 +12,11 @@ import { TareaService } from 'src/app/services/tarea.service';
 export class MainComponent implements OnInit {
   tareas : Tarea[];
   form : FormGroup;
+  verTareasPendientes:boolean;
+  titulo: string;
 
   constructor(private httpClient:HttpClient,private fb:FormBuilder, private tareaService:TareaService) {
+    
     this.form = this.fb.group({
       titulo:["",Validators.required],
       descripcion:["",Validators.required]
@@ -22,14 +24,30 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.traerTareas();
+    this.mostrarTareasPendientes();
   }
 
   traerTareas():void{
     this.tareaService.getTareas().subscribe(valor =>{
       console.log(valor);
-      this.tareas = valor;
+      if(this.verTareasPendientes == true)
+        this.tareas = valor.filter(x=>x.activa==false);
+      else
+        this.tareas = valor.filter(x=>x.activa == true);
     });
+  }
+
+  mostrarTareasCompletadas(){
+    this.verTareasPendientes = false;
+    this.traerTareas();
+    this.titulo =" Tareas Completadas";
+  
+  }
+
+  mostrarTareasPendientes(){
+    this.verTareasPendientes =true;
+    this.traerTareas();
+    this.titulo =" Tareas Pendientes";
   }
 
 

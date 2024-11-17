@@ -49,6 +49,17 @@
     height: auto;
 }
 
+.secciones{
+    display: flex;
+    gap:10px;
+}
+.secciones span{
+    color: #b4b4b4;
+}
+.secciones a{
+    color: #b4b4b4;
+    text-decoration: none;
+}
 /*formularioTareaNueva*/
 
 .formulario{
