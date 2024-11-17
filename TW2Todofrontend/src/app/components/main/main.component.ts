@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Tarea } from 'src/app/models/tarea';
 import { TareaService } from 'src/app/services/tarea.service';
 
@@ -18,7 +19,7 @@ export class MainComponent implements OnInit {
 
   tareaInformacion : Tarea;
 
-  constructor(private router:Router,private fb:FormBuilder, private tareaService:TareaService) {
+  constructor(private router:Router,private fb:FormBuilder, private tareaService:TareaService, private toastService:ToastrService ) {
     
     this.form = this.fb.group({
       titulo:["",Validators.required],
@@ -63,6 +64,7 @@ export class MainComponent implements OnInit {
 
     this.tareaService.saveTarea(tareaNueva).subscribe(data=>{
       console.log(data);
+      this.toastService.success("La tarea ha sido agregada exitosamente", "Tarea agregada")
       this.traerTareas();
     });
     console.log(tareaNueva);
