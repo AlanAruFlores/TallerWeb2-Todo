@@ -58,6 +58,23 @@ router.get('/inactivas', (req, res) => {
   });
 });
 
+router.put('/:id/inactivar', (req, res) => {
+  const { id } = req.params;
+  connection.query(
+    'UPDATE tarea SET activa = 0 WHERE id = ?',
+    [id],
+    (err, results) => {
+      if (err) return res.status(500).send(err);
+
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ mensaje: 'Tarea no encontrada' });
+      }
+
+      res.json({ mensaje: 'Tarea completada exitosamente' });
+    }
+  );
+});
+
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
   connection.query('DELETE FROM tarea WHERE id = ?', [id], (err) => {
