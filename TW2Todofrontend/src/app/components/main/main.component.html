@@ -59,4 +59,4 @@
 (cerrarEdicionDeTarea)="cerrarEdicionTarea()">
 </app-editar-tarea>
 
-<router-outlet (tareaEditadaExitosamente)="traerTareas()"></router-outlet>
+<app-ver-informacion *ngIf="abrirInformacionTarea" (cerrarVentanaInformacion)="cerrarInformacionTarea()" [tareaInformacion]="tareaInformacion"></app-ver-informacion>

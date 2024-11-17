@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tarea } from 'src/app/models/tarea';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-ver-informacion',
   templateUrl: './ver-informacion.component.html',
@@ -9,19 +7,19 @@ import { Router } from '@angular/router';
 })
 export class VerInformacionComponent implements OnInit {
 
-  tareaInformacion: Tarea;
+  @Input() tareaInformacion: Tarea;
+  @Output() cerrarVentanaInformacion = new EventEmitter<void>();  // Este es el evento que se emitirá al padre
 
-  constructor(private location:Location, private router:Router) { 
-    const navigation = this.router.getCurrentNavigation();
-    this.tareaInformacion = navigation.extras.state.tareaInformacion;
-    console.log(this.tareaInformacion);
+
+  constructor() { 
   }
 
   ngOnInit(): void {
+    console.log(this.tareaInformacion);
   }
 
   cerrarVentana(){
-    this.location.back();
+    this.cerrarVentanaInformacion.emit();
   }
 
 }

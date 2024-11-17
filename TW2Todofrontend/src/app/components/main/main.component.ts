@@ -77,17 +77,28 @@ export class MainComponent implements OnInit {
     console.log(tareaNueva);
   }
 
+
+  //Ver informacion de la tarea
   verInformacionDeLaTarea(id:number){
     this.tareaService.getTareaById(id).subscribe(data=>{
       this.tareaInformacion = data[0];
-      console.log(this.tareaInformacion);
+      console.log(this.tareaInformacion);/*
       this.router.navigate(["/verInformacionView"],{
         state: {tareaInformacion: this.tareaInformacion}
-      });
+      });*/
+
+      this.abrirInformacionTarea = true;
+
     });
   }
 
+  cerrarInformacionTarea(){
+    this.abrirInformacionTarea = false;
+  }
 
+
+  
+  //Edicion de tareas
   editarInformacionDeLaTarea(id:number){
     this.tareaService.getTareaById(id).subscribe(data=>{
       this.tareaEditar = data[0]
@@ -108,5 +119,6 @@ export class MainComponent implements OnInit {
   actualizarTarea(){
     this.abrirEdicionTarea = false;
     this.traerTareas();
+    this.toastService.info("Tarea editada con exito","Tarea editada");
   }
 }
