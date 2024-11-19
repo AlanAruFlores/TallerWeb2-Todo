@@ -39,6 +39,19 @@ export class MainComponent implements OnInit {
   }
 
   traerTareas():void{
+    
+    //Version Nueva: traer tareas activas/inactivas
+    /*
+    const tareasObservable = (this.verTareasPendientes == true) ? 
+    this.tareaService.getTareasActivas() : 
+    this.tareaService.getTareasInactivas();
+
+    tareasObservable.subscribe(valor =>{
+      console.log(valor);
+      this.tareas = valor;
+    });
+    */
+    //Version anterior: traer tareas activas/inactivas 
     this.tareaService.getTareas().subscribe(valor =>{
       console.log(valor);
       if(this.verTareasPendientes == true)

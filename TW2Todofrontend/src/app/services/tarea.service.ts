@@ -18,6 +18,15 @@ export class TareaService {
     const tareasObservable: Observable<Tarea[]>  = this.httpClient.get<Tarea[]>(this.apiUrl);
     return tareasObservable;
   }
+
+  getTareasActivas():Observable<Tarea[]>{
+    return this.httpClient.get<Tarea[]>(`${this.apiUrl}/activas`);
+  }
+
+  getTareasInactivas():Observable<Tarea[]>{
+    return this.httpClient.get<Tarea[]>(`${this.apiUrl}/inactivas`);
+  }
+
   
   getTareaById(id:number):Observable<Tarea>{
     return this.httpClient.get<Tarea>(`${this.apiUrl}/${id}`); 
