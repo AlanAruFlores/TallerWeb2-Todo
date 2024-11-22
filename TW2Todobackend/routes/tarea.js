@@ -43,18 +43,17 @@ router.put('/:id', (req, res) => {
   );
 });
 
-
 router.get('/activas', (req, res) => {
   connection.query('SELECT * FROM tarea WHERE activa = 1', (err, results) => {
     if (err) return res.status(500).send(err);
-    res.json({ exito: true, data: results });
+    res.json(results);
   });
 });
 
 router.get('/inactivas', (req, res) => {
   connection.query('SELECT * FROM tarea WHERE activa = 0', (err, results) => {
     if (err) return res.status(500).send(err);
-    res.json({ exito: true, data: results });
+    res.json(results);
   });
 });
 
