@@ -46,4 +46,7 @@ export class TareaService {
   updateTareaToInactiva(id:number,tarea:Tarea):Observable<any>{
     return this.httpClient.put(`${this.apiUrl}/${id}/inactivar`,tarea);
   }
+  updateTareaToActiva(id:number, tarea:Tarea):Observable<any>{
+    return this.httpClient.put(`${this.apiUrl}/${id}/activar`,tarea);
+  }
 }
