@@ -89,7 +89,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"titulo\": \"Tarea nueva\",\r\n  \"recordatorio\": \"Nuevo recordatorio\",\r\n  \"activa\": true\r\n}",
+					"raw": "{\r\n  \"titulo\": \"Tarea nueva\",\r\n  \"descripcion\": \"Nuevo recordatorio 0\",\r\n  \"activa\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -111,10 +111,26 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "2"
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "getActivas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getInactivas",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

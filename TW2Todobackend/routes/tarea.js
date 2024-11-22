@@ -3,6 +3,7 @@ const router = express.Router();
 const connection = require('../db/db');
 
 router.get('/', (req, res) => {
+  console.log("Peticion '/'");
   connection.query('SELECT * FROM tarea', (err, results) => {
     if (err) return res.status(500).send(err);
     res.json(results);
@@ -44,6 +45,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.get('/activas', (req, res) => {
+  console.log("Peticion: '/activas'");
   connection.query('SELECT * FROM tarea WHERE activa = 1', (err, results) => {
     if (err) return res.status(500).send(err);
     res.json(results);
@@ -51,6 +53,7 @@ router.get('/activas', (req, res) => {
 });
 
 router.get('/inactivas', (req, res) => {
+  console.log("Peticion: '/inactivas'");
   connection.query('SELECT * FROM tarea WHERE activa = 0', (err, results) => {
     if (err) return res.status(500).send(err);
     res.json(results);
@@ -61,6 +64,23 @@ router.put('/:id/inactivar', (req, res) => {
   const { id } = req.params;
   connection.query(
     'UPDATE tarea SET activa = 0 WHERE id = ?',
+    [id],
+    (err, results) => {
+      if (err) return res.status(500).send(err);
+
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ mensaje: 'Tarea no encontrada' });
+      }
+
+      res.json({ mensaje: 'Tarea completada exitosamente' });
+    }
+  );
+});
+
+router.put('/:id/activar', (req, res) => {
+  const { id } = req.params;
+  connection.query(
+    'UPDATE tarea SET activa = 1 WHERE id = ?',
     [id],
     (err, results) => {
       if (err) return res.status(500).send(err);
