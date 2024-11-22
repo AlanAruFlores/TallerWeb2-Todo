@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { Toast, ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { Tarea } from 'src/app/models/tarea';
 import { TareaService } from 'src/app/services/tarea.service';
 
@@ -45,10 +46,15 @@ export class ItemComponent implements OnInit {
       id:this.id,
       titulo:this.titulo,
       descripcion:this.descripcion,
-      activa: (this.activa == true) ? false : true
+      activa: this.activa
     }
 
-    this.tareaService.updateTarea(this.id,tareaActualizada).subscribe(data=>{
+    const tareaEstadoActualizada:Observable<any> = (tareaActualizada.activa) ?
+    this.tareaService.updateTareaToInactiva(tareaActualizada.id, tareaActualizada) : 
+    this.tareaService.updateTareaToActiva(tareaActualizada.id, tareaActualizada);
+
+
+    tareaEstadoActualizada.subscribe(data=>{
       this.cambioEstadoTarea.emit();
       this.toastService.info("Estado de la tarea actualizada exitosamente","Tarea Actualizada");  
     })
