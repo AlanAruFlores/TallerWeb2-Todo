@@ -5,21 +5,23 @@
 ````bash
     git clone https://github.com/AlanAruFlores/TallerWeb2-Todo.git
 ````
-## Pasos ejecutar la aplicación (Backend) 
 
-### 1. Versión de Node.js, NPM y Angular CLI
+## Versión de Node.js, NPM y Angular CLI
 ````
     Node.js: v12.22.12
     NPM: v6.14.16
     MySQL: v8.2.0
     Angular CLI: v11.2.10
 ````
+
 Estas versiones son necesarias para la ejecución de esta aplicación. Verifica que tu sistema tenga instaladas las versiones mencionadas para evitar problemas de compatibilidad.
 
-### 2. Ejecución de Scripts
+## Pasos ejecutar la aplicación (Backend) 
+
+### 1. Ejecución de Scripts
 Se debe ejecutar el Script que se encuentra en la carpeta script, para la creacion de la base de datos.
 
-### 3. Configuración de datos de la Base de Datos y puerto de la aplicación
+### 2. Configuración de datos de la Base de Datos y puerto de la aplicación
 La configuración de los datos de la base de datos se encuentra en el archivo .env. Asegúrate de definir las variables de entorno correctas en este archivo, tales como:
 
 ````
@@ -31,7 +33,7 @@ La configuración de los datos de la base de datos se encuentra en el archivo .e
 ````
 Este archivo permite definir las credenciales y configuraciones específicas para conectarse a la base de datos.
 
-### 4. Instalación de Dependencias
+### 3. Instalación de Dependencias
 Para instalar las dependencias del proyecto, abre una terminal, navega a la carpeta backend y ejecuta el siguiente comando:
 ````bash
     npm install
@@ -39,14 +41,14 @@ Para instalar las dependencias del proyecto, abre una terminal, navega a la carp
 Este comando descargará e instalará todas las dependencias definidas en el archivo package.json, necesarias para que la aplicación funcione correctamente.
 
 **Nota: Si existe un error, eliminar el archivo package-lock.json y ejecutar nuevamente el comando.**
-### 5. Levantar el Servidor
+### 4. Levantar el Servidor
 Para iniciar el servidor, en la carpeta raíz del backend, ejecuta el siguiente comando:
 ````bash
     node server.js
 ````
 Esto levantará el servidor de la aplicación en el puerto especificado en la configuración.
 
-### 6. Acceso al Servidor
+### 5. Acceso al Servidor
 Una vez iniciado el servidor, podrás acceder al backend a través de la siguiente dirección:
 
 http://localhost:3000/api/tarea
