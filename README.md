@@ -1,4 +1,4 @@
-# Manual de instruccion de uso
+# Manual de instruccion
  
 ## Clonar el repositorio
    Clona este repositorio en tu máquina local utilizando Git. En la terminal, ejecuta el siguiente comando:
@@ -74,3 +74,6 @@ Esto levantará el servidor de desarrollo de Angular y podrás acceder a la apli
 Ahora puedes abrir el navegador y navegar a la URL http://localhost:4200 para ver la aplicación en funcionamiento.
 
 **Nota: Tener en cuenta que debe tener antes ejecutando la aplicacion de node js para su correcto funcionamiento.**
+
+## Resultado Final
+![alt text](app.png)
