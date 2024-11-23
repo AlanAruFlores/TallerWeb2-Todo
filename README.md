@@ -7,11 +7,12 @@
 ````
 ## Pasos ejecutar la aplicación (Backend) 
 
-### 1. Versión de Node.js y NPM
+### 1. Versión de Node.js, NPM y Angular CLI
 ````
     Node.js: v12.22.12
     NPM: v6.14.16
     MySQL: v8.2.0
+    Angular CLI: v11.2.10
 ````
 Estas versiones son necesarias para la ejecución de esta aplicación. Verifica que tu sistema tenga instaladas las versiones mencionadas para evitar problemas de compatibilidad.
 
